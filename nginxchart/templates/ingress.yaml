@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "nginxchart.fullname" . }}-nginx-service
+  labels:
+  {{- include "nginxchart.labels" . | nindent 4 }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/affinity: cookie
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "360"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "360"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "360"
+spec:
+  defaultBackend:
+    service:
+      name: '{{ include "nginxchart.fullname" . }}-nginx-service'
+      port:
+        number: 80
+  rules:
+  - host: kube-test-sunil3.therealpbx.co.in
+    http:
+      paths:
+      - backend:
+          service:
+            name: '{{ include "nginxchart.fullname" . }}-nginx-service'
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - kube-test-sunil3.therealpbx.co.in
+    secretName: tls-sunil3

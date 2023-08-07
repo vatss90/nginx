@@ -1,0 +1,19 @@
+indexHtmlConfigmap:
+  indexHtml: |-
+    <html>
+    <h1>Welcome sunil how are you </h1>
+    </br>
+    <h1>Hi! This is a configmap Index file </h1>
+    </html
+kubernetesClusterDomain: cluster.local
+nginxDeployment:
+  nginx:
+    image:
+      repository: nginx
+      tag: latest
+  replicas: 2
+nginxService:
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
