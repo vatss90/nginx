@@ -10,7 +10,7 @@ nginxDeployment:
   nginx:
     image:
       repository: nginx
-      tag:025804b latest
+      tag:025804b
   replicas: 2
 nginxService:
   ports:
