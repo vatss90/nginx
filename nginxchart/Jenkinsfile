@@ -29,7 +29,7 @@ pipeline {
         git fetch origin main
         git checkout main
         git pull
-        sed -i 's/\\tag:\\)[^ ]*/\\1${IMAGE_TAG}/' nginxchart/values.yaml
+        sed -i 's/\\(tag:\\)[^ ]*/\\1${IMAGE_TAG}/' nginxchart/values.yaml
         git add nginxchart/values.yaml
         git commit -m "imageupdate tag ${IMAGE_TAG}"
         git push origin
