@@ -26,8 +26,7 @@ pipeline {
     stage('Print IMAGE TAG') {
       steps {
         sh """
-        git fetch origin master
-        git checkout master
+        git fetch origin
         git pull
         sed -i 's/\\tag:\\)[^ ]*/\\1${IMAGE_TAG}/' nginxchart/values.yaml
         git add nginxchart/values.yaml
