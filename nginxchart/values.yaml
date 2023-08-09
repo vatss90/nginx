@@ -10,7 +10,7 @@ nginxDeployment:
   nginx:
     image:
       repository: vatss90/nginx_new
-      tag: c6552e2
+      tag: c1b6863
   replicas: 2
 nginxService:
   ports:
