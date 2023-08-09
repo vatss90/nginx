@@ -26,6 +26,8 @@ spec:
         ports:
         - containerPort: 80
         resources: {}
+          #testing comment
+
           #volumeMounts:
           #- mountPath: /usr/share/nginx/html/
           # name: nginx-index-file
