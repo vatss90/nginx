@@ -25,15 +25,29 @@ pipeline {
 
     stage('Print IMAGE TAG') {
       steps {
-        sh """
-        git fetch origin main
-        git checkout main
-        git pull
-        sed -i 's/\\(tag:\\)[^ ]*/\\1${IMAGE_TAG}/' nginxchart/values.yaml
-        git add nginxchart/values.yaml
-        git commit -m "imageupdate tag ${IMAGE_TAG}"
-        git push origin
+        
+        withCredentials([gitUsernamePassword(credentialsId: 'vatss90')]) { 
 
+sh """ 
+
+ls  
+
+git config --global user.name 'jenkinsUser' 
+
+git config --global user.email 'jenkins@acefone.com' 
+
+git log -1 
+git fetch origin main
+git checkout main
+git pull origin
+
+sed -i 's/\\(tag:\\)[^ ]*/\\1${params.IMAGE_TAG}/' nginxchart/values.yaml 
+
+git add nginxchart/values.yaml
+
+git commit -m "Image updated with commit ID: ${params.IMAGE_TAG}" 
+
+git push origin main
         """
       }
     }
