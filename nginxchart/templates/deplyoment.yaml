@@ -26,10 +26,10 @@ spec:
         ports:
         - containerPort: 80
         resources: {}
-        volumeMounts:
-        - mountPath: /usr/share/nginx/html/
-          name: nginx-index-file
-      volumes:
-      - configMap:
-          name: {{ include "nginxchart.fullname" . }}-index-html-configmap
-        name: nginx-index-file
+          #volumeMounts:
+          #- mountPath: /usr/share/nginx/html/
+          # name: nginx-index-file
+          #volumes:
+          #- configMap:
+          # name: {{ include "nginxchart.fullname" . }}-index-html-configmap
+          #name: nginx-index-file
