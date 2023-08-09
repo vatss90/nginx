@@ -28,6 +28,7 @@ spec:
         resources: {}
           #testing comment
           #hello
+          #hello helloc afsdsf
           #volumeMounts:
           #- mountPath: /usr/share/nginx/html/
           # name: nginx-index-file
