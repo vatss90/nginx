@@ -9,8 +9,8 @@ kubernetesClusterDomain: cluster.local
 nginxDeployment:
   nginx:
     image:
-      repository: nginx
-      tag:null latest
+      repository: vatss90/nginx_new
+      tag: null
   replicas: 2
 nginxService:
   ports:
