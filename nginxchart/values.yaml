@@ -1,7 +1,7 @@
 indexHtmlConfigmap:
   indexHtml: |-
     <html>
-    <h1>Welcome sunil how are you </h1>
+    <h1>Welcome sunil hello.... </h1>
     </br>
     <h1>Hi! This is a configmap Index file </h1>
     </html
